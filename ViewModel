@@ -1,0 +1,13 @@
+import com.kapirti.ira.model.service.FirestoreService
+import com.kapirti.ira.model.service.LogService
+import com.kapirti.ira.ui.presentation.IraViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    private val firestoreService: FirestoreService,
+    logService: LogService
+): IraViewModel(logService){
+    val users = firestoreService.usersAll
+}
